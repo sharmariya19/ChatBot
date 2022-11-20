@@ -1,6 +1,5 @@
 import re
-import calculate
-
+import calc
 
 def checkoperation(message):
     nums = check_values(message)
