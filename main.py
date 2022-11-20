@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
 
 while True:
-    message = input(f'{name}: ')
+    message = input(f'{name}: ').lower()
     if message in checkword.exit_words:
         print(f"Jarvis: Okay, {name}, GoodBye!!!")
         break

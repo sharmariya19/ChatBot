@@ -13,7 +13,7 @@ responses = [
 
 def take_name():
     name = input()
-    name_words = name.split((" "))
+    name_words = name.split(" ")
     for word in name_words:
         if word.lower() not in ignore_words:
             global first_name

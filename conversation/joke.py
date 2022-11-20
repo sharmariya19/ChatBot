@@ -1,9 +1,9 @@
 
 positive_words = ["good", "great", "nice", "hahaha", "haha"]
-negative_words = ["not", "bad", "don't"]
+negative_words = ["not", "don't", "didn't"]
 joke_words = ["joke", "crack", "other", "any", "know", "another"]
 jokes = iter([
-    ' I am tired of the constant ups and downs in my life, so I got to stop using the stairs.',
+    'I am tired of the constant ups and downs in my life, so I got to stop using the stairs.',
     'What do you call an act of investing in Bill Gates’ business? To Investigate!',
     'What did east say to west? You mustn’t go north when things are going south!',
     'You can find ghost everywhere except the living room.',
@@ -21,6 +21,7 @@ def converse(reply, name):
                 break
         except StopIteration:
             return f"Sorry {name}, I don't have more jokes for you"
+
         if msg in positive_words:
             return "I am glad you like it. Anything else?"
             break

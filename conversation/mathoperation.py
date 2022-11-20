@@ -1,5 +1,6 @@
 import re
-import calc
+from conversation import calculate
+
 
 def checkoperation(message):
     nums = check_values(message)
@@ -16,15 +17,15 @@ def checkoperation(message):
                     op = operations2[i]
                     break
 
-    obj1 = calculate.Calculate(*nums)
+    calc = calculate.Calculate(*nums)
     if op == 'add':
-        obj1.add()
+        calc.add()
     elif op == 'subtract':
-        obj1.subtract()
+        calc.subtract()
     elif op == 'multiply':
-        obj1.multiply()
+        calc.multiply()
     elif op == 'divide':
-        obj1.divide()
+        calc.divide()
 
 
 operations1 = ('+', '-', '*', '/')

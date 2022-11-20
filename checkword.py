@@ -1,31 +1,35 @@
-from conversation import mathoperation, botmemory
+from conversation import mathoperation, botmemory, joke
 import random
 
+
 hello_words = ["hi", "hello", "hey"]
-exit_words = ["bye", "exit", "goodbye"]
-math_ = ["add", "addition", "subtract", "+", "-", "*", "/", "subtraction", "multiply", "multiplication", "divide", "division", "power", "square root"]
-conversation_ = ["joke", "other", "another", "hahaha"]
+exit_words = ["bye" , "exit", "goodbye"]
+math_ = ["add", "addition", "subtract", "+", "-", "*", "/", "subtraction", "multiply", "multiplication", "divide", "division"]
 memory = ["remember", "recall", "remind", "notes"]
+normal_words = ["okay", "ok", "fine", "no", "nothing"]
 
 
 def check(reply, name):
     message = reply.split(" ")
     print("Jarvis: ", end=" ")
     for words in message:
+        if words in normal_words:
+            print("okyy")
+            break
         if words in hello_words:
             print(random.choice(hello_words))
             break
         if words in memory:
             botmemory.filecheck(reply)
             break
-        if words in conversation.positive_words or words in conversation.joke_words:
-            print(conversation.converse(reply, name))
+        if words in joke.positive_words or words in joke.joke_words or words in joke.negative_words:
+            print(joke.converse(reply, name))
             break
         found = check_op(words, reply)
         if found:
             break
     else:
-        print("i didn't get you")
+        print("Sorry! I didn't get you")
 
 
 def check_op(words, reply):
