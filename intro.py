@@ -4,10 +4,10 @@ first_name = ""
 
 ignore_words = ["hey", "hello", "hi", "jarvis", "?", 'my', 'name', 'is', "it's", 'me', "this", "side", "i", "am"]
 responses = [
-        "Hi, {}, can I help you?",
-        "Hello, {}, is there something I can do?",
-        "Hey, {}, what's up?",
-        "Hey, {}, How are you?"
+        "Hi {}, what can I do for you?",
+        "Hello {}, how can i help you?",
+        "Hey {}, can i do something for you?",
+        "Hey {}, what should i do?"
     ]
 
 
@@ -18,9 +18,9 @@ def take_name():
         if word.lower() not in ignore_words:
             global first_name
             first_name = word.capitalize()
+            break
     print_hi(first_name)
     return first_name
-    # message = input(f"{first_name}: ")
 
 
 def print_hi(name):
