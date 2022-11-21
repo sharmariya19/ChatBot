@@ -1,4 +1,3 @@
-import re
 
 msg_store = ['remind', "recall", "remember"]
 

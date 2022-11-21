@@ -4,8 +4,8 @@ import random
 
 hello_words = ["hi", "hello", "hey"]
 exit_words = ["bye" , "exit", "goodbye"]
-math_ = ["add", "addition", "subtract", "+", "-", "*", "/", "subtraction", "multiply", "multiplication", "divide", "division"]
-memory = ["remember", "recall", "remind", "notes"]
+math_words = ["add", "addition", "subtract", "+", "-", "*", "/", "subtraction", "multiply", "multiplication", "divide", "division"]
+memory_words = ["remember", "recall", "remind", "notes"]
 normal_words = ["okay", "ok", "fine", "no", "nothing"]
 
 
@@ -19,7 +19,7 @@ def check(reply, name):
         if words in hello_words:
             print(random.choice(hello_words))
             break
-        if words in memory:
+        if words in memory_words:
             botmemory.filecheck(reply)
             break
         if words in joke.positive_words or words in joke.joke_words or words in joke.negative_words:
@@ -33,11 +33,11 @@ def check(reply, name):
 
 
 def check_op(words, reply):
-    if words in math_:
+    if words in math_words:
         mathoperation.checkoperation(reply)
         return True
     for word in words:
-        if word in math_:
+        if word in math_words:
             mathoperation.checkoperation(reply)
             return True
     else:
