@@ -2,6 +2,12 @@ import re
 from conversation import calculate
 
 
+operations1 = ('+', '-', '*', '/')
+operations2 = ('add', 'subtract', 'multiply', 'divide')
+operations3 = ('addition', 'subtraction', 'multiplication', 'division')
+operations = tuple(zip(operations1, operations2, operations3))
+
+
 def checkoperation(message):
     nums = check_values(message)
     op = ''
@@ -26,12 +32,6 @@ def checkoperation(message):
         calc.multiply()
     elif op == 'divide':
         calc.divide()
-
-
-operations1 = ('+', '-', '*', '/')
-operations2 = ('add', 'subtract', 'multiply', 'divide')
-operations3 = ('addition', 'subtraction', 'multiplication', 'division')
-operations = tuple(zip(operations1, operations2, operations3))
 
 
 def check_values(msg):

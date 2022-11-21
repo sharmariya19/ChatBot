@@ -9,7 +9,10 @@ if __name__ == '__main__':
 
 while True:
     message = input(f'{name}: ').lower()
-    if message in checkword.exit_words:
+    if message in checkword.input_words["exit_words"]:
         print(f"Jarvis: Okay, {name}, GoodBye!!!")
         break
-    checkword.check(message, name)
+    try:
+        checkword.check(message, name)
+    except:
+        print("I think something is wrong here")

@@ -19,10 +19,10 @@ def take_name():
             global first_name
             first_name = word.capitalize()
             break
-    print_hi(first_name)
+    print_hi()
     return first_name
 
 
-def print_hi(name):
+def print_hi():
     print((random.choice(responses)).format(first_name))
 
