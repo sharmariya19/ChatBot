@@ -16,5 +16,4 @@ def store_session(speaker, text):
         'text': text,
         'datetime': datetime.now()
     }
-    print(conversation)
     collection1.insert_one(conversation)
