@@ -3,13 +3,13 @@ from datetime import datetime
 
 
 client = mongo_db.get_database()
-db = client['message']
+db = client['chatbot']
 
 
 def store_session(speaker, text):
     # Access collection of the database
 
-    collection1 = db['table1']
+    collection1 = db['convo']
 
     conversation = {
         'speaker': speaker,
