@@ -25,13 +25,15 @@ def checkoperation(message):
 
     calc = calculate.Calculate(*nums)
     if op == 'add':
-        calc.add()
+        res = calc.add()
     elif op == 'subtract':
-        calc.subtract()
+        res = calc.subtract()
     elif op == 'multiply':
-        calc.multiply()
+        res = calc.multiply()
     elif op == 'divide':
-        calc.divide()
+        res = calc.divide()
+
+    return res
 
 
 def check_values(msg):

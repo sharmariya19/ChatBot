@@ -2,7 +2,7 @@
 words = {
     "positive_words": ["good", "great", "nice", "hahaha", "haha"],
     "negative_words": ["not", "don't", "didn't"],
-    "joke_words": ["joke", "crack", "other", "any", "know", "another"],
+    "joke_words": ["joke", "crack"],
     "jokes": iter([
         'I am tired of the constant ups and downs in my life, so I got to stop using the stairs.',
         'What do you call an act of investing in Bill Gates’ business? To Investigate!',

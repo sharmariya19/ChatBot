@@ -7,19 +7,18 @@ class Calculate:
         self._num2 = int(num2)
 
     def add(self):
-        print("{}+{} = {}".format(self._num1, self._num2, self._num1 + self._num2))
+        return "{}+{} = {}".format(self._num1, self._num2, self._num1 + self._num2)
 
     def subtract(self):
-        print("{}-{} = {}".format(self._num1, self._num2, self._num1 - self._num2))
+        return "{}-{} = {}".format(self._num1, self._num2, self._num1 - self._num2)
 
     def multiply(self):
-        print("{}*{} = {}".format(self._num1, self._num2, self._num1 * self._num2))
+        return "{}*{} = {}".format(self._num1, self._num2, self._num1 * self._num2))
 
     def divide(self):
         try:
             self._num1 / self._num2
         except ZeroDivisionError as e:
-            print("Division by zero not allowed")
+            return "Division by zero not allowed"
         else:
-            print(
-                "{}/{} = {}".format(self._num1, self._num2, self._num1 // self._num2))  # floor division
+            return "{}/{} = {}".format(self._num1, self._num2, self._num1 // self._num2)  # floor division
