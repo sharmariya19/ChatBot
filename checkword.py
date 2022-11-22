@@ -1,7 +1,8 @@
 from conversation import mathoperation, botmemory, joke
 import random
-from database.postgres import insert_data
+# from database.postgres import insert_data
 import datetime
+from database.mongo_db import insert_data
 
 input_words = {
     "hello_words": ["hi", "hello", "hey"],
@@ -13,7 +14,10 @@ input_words = {
 
 
 def check(reply, name):
-    insert_data.insert_detail(f"{name}", f"{reply}")
+
+    insert_data.store_session(name, reply) #mongo
+    # insert_data.insert_detail(name, reply) #postgres
+
     message = reply.split(" ")
     print("Jarvis: ", end=" ")
     for words in message:
@@ -29,24 +33,25 @@ def check(reply, name):
         if words in joke.words["positive_words"] or words in joke.words["joke_words"] or words in joke.words["negative_words"]:
             msg = joke.converse(reply, name)
             break
-        found = check_op(words, reply)
-        if found(1):
+        msg, bool_val = check_op(words, reply)
+        if bool_val:
             break
     else:
         msg = "Sorry! I didn't get you"
     print(msg)
-    insert_data.insert_detail("Jarvis",f"{msg}")
 
+    insert_data.store_session("Jarvis", msg)    #mongo
+    # insert_data.insert_detail("Jarvis", msg)   # postgres
 
 
 def check_op(words, reply):
     if words in input_words["math_words"]:
-        msg = mathoperation.checkoperation(reply)
-        return msg, True
+        val = mathoperation.checkoperation(reply)
+        return val, True
     for word in words:
         if word in input_words["math_words"]:
-            msg = mathoperation.checkoperation(reply)
-            return msg, True
+            val = mathoperation.checkoperation(reply)
+            return val, True
     else:
-        return False
+        return None, False
 

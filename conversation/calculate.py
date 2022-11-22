@@ -13,7 +13,7 @@ class Calculate:
         return "{}-{} = {}".format(self._num1, self._num2, self._num1 - self._num2)
 
     def multiply(self):
-        return "{}*{} = {}".format(self._num1, self._num2, self._num1 * self._num2))
+        return "{}*{} = {}".format(self._num1, self._num2, self._num1 * self._num2)
 
     def divide(self):
         try:
