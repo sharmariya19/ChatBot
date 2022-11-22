@@ -14,6 +14,6 @@ while True:
         print(f"Jarvis: Okay, {name}, GoodBye!!!")
         break
     try:
-        checkword.check(message, name)
+        checkword.check(message, name.lower())
     except Exception as e:
         print("I think something is wrong here", e)

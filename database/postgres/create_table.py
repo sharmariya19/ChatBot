@@ -1,10 +1,13 @@
-import psycopg2
+import checkword
+
+global name
 
 
 def create_tables():
     """ create tables in the PostgreSQL database"""
+    global name
     commands = [
-        '''CREATE TABLE conversation(
+        f'''CREATE TABLE {name}(
         id SERIAL PRIMARY KEY ,
         speaker VARCHAR(50),
         text VARCHAR(100) NOT NULL,
@@ -14,5 +17,7 @@ def create_tables():
     return commands
 
 
-if __name__ == '__main__':
-    create_tables()
+def user_name(username):
+    global name
+    name = username
+

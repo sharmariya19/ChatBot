@@ -6,10 +6,10 @@ client = mongo_db.get_database()
 db = client['chatbot']
 
 
-def store_session(speaker, text):
+def store_session(name, speaker, text):
     # Access collection of the database
 
-    collection1 = db['convo']
+    collection1 = db[name]
 
     conversation = {
         'speaker': speaker,

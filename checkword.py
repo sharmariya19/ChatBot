@@ -1,8 +1,7 @@
 from conversation import mathoperation, botmemory, joke
 import random
-# from database.postgres import insert_data
-import datetime
-from database.mongo_db import insert_data
+from database.postgres import insert_data, create_table
+# from database.mongo_db import insert_data
 
 input_words = {
     "hello_words": ["hi", "hello", "hey"],
@@ -15,8 +14,9 @@ input_words = {
 
 def check(reply, name):
 
-    insert_data.store_session(name, reply) #mongo
-    # insert_data.insert_detail(name, reply) #postgres
+    # insert_data.store_session(name, name, reply) #mongo
+    create_table.user_name(name)
+    insert_data.insert_detail(name, name, reply) #postgres
 
     message = reply.split(" ")
     print("Jarvis: ", end=" ")
@@ -40,8 +40,8 @@ def check(reply, name):
         msg = "Sorry! I didn't get you"
     print(msg)
 
-    insert_data.store_session("Jarvis", msg)    #mongo
-    # insert_data.insert_detail("Jarvis", msg)   # postgres
+    # insert_data.store_session(name, "Jarvis", msg)    #mongo
+    insert_data.insert_detail(name, "Jarvis", msg)   # postgres
 
 
 def check_op(words, reply):
